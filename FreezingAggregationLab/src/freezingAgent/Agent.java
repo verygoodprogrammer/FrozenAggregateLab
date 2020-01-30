@@ -11,6 +11,7 @@ public class Agent implements Steppable {
 	int diry;
 	// boolean contact_with_frozen;
 	boolean frozen;
+	boolean bounded;
 	
 	public Agent(int x, int y, int dirx, int diry) {
 		super();
@@ -20,6 +21,7 @@ public class Agent implements Steppable {
 		this.y = y;
 		// this.contact_with_frozen = false; // rename later to frozen
 		this.frozen = false;
+		this.bounded = true; 
 	}
 	
     public void placeAgent(Environment state) {
@@ -39,7 +41,16 @@ public class Agent implements Steppable {
              state.space.setObjectLocation(this, x, y);
         }
    }
-	
+	public Bag changeBounds {
+		if (bounded) {
+			Bag neighbors =  getMooreNeighbors(x, y, 1, SparseGrid2D.TOROIDAL, false);
+			bounded = false;
+		} else {
+			Bag neighbors =  getMooreNeighbors(x, y, 1, SparseGrid2D.BOUNDED, false);
+			bounded = true;
+		}
+		return Bag;
+	} 
 	
 	public void Aggregate (Environment state) {
 		/* if (!contact_with_frozen) {
