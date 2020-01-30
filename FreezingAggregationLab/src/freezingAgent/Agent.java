@@ -49,7 +49,7 @@ public class Agent implements Steppable {
 			Bag neighbors =  getMooreNeighbors(x, y, 1, SparseGrid2D.BOUNDED, false);
 			bounded = true;
 		}
-		return Bag;
+		return neigbors;
 	} 
 	
 	public void Aggregate (Environment state) {
