@@ -8,7 +8,8 @@ public class Environment extends SimState {
 		super(seed);
 		// TODO Auto-generated constructor stub
 	}
-
+	// new datamember here:
+	public boolean bounded;
 	public boolean oneCellPerAgent;
 	public boolean broad_or_narrow;
 	public int n = 50;
@@ -17,6 +18,16 @@ public class Environment extends SimState {
 	public SparseGrid2D space;
 	public boolean isBroad_or_narrow() {
 		return broad_or_narrow;
+	}
+	// new function here:
+	public void setBounds {
+		if (bounded) {
+			Bag neighbors =  getMooreNeighbors(x, y, 1, SparseGrid2D.TOROIDAL, false);
+			bounded = false;
+		} else {
+			Bag neighbors =  getMooreNeighbors(x, y, 1, SparseGrid2D.BOUNDED, false);
+			bounded = true;
+		}
 	}
 	public boolean isOneCellPerAgent() {
 		return oneCellPerAgent;
