@@ -41,13 +41,13 @@ public class Agent implements Steppable {
              state.space.setObjectLocation(this, x, y);
         }
    }
-	public Bag changeBounds {
+	public Bag changeBounds(bounded) {
 		if (bounded) {
 			Bag neighbors =  getMooreNeighbors(x, y, 1, SparseGrid2D.TOROIDAL, false);
-			bounded = false;
+			// bounded = false;
 		} else {
 			Bag neighbors =  getMooreNeighbors(x, y, 1, SparseGrid2D.BOUNDED, false);
-			bounded = true;
+			// bounded = true;
 		}
 		return neigbors;
 	} 
